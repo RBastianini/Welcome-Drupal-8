@@ -44,8 +44,8 @@ function vendini_schema() {
 			),
 		),
 		'indexes' => array(
-			'access' => array('event'),
-			'created' => array('user')
+			'find_by_event' => array('event'),
+			'find_by_user' => array('user')
 		),
 		'unique keys' => array(
 			'uuid' => array('uuid'),

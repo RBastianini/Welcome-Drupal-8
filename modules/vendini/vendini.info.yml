@@ -1,0 +1,10 @@
+# Vendini module demo for the "Welcome Drupal 8 workshop"
+type: module
+name: Vendini
+description: Vendini Demo Module
+core: 8.x
+package: Custom
+dependencies:
+ - field
+ - entity
+ - entity_reference

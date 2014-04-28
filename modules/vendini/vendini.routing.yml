@@ -1,0 +1,45 @@
+# route name
+vendini.reserveTicket:
+  # strings in curly brackets are considered parameters and will be passed to the _content or _controller function
+  # if they match an entity name, the respective entity will be automatically loaded for you
+  path: '/event/{node}/reserve'
+  defaults:
+    # everything beginning with an underscore is a setting, everything without an underscore is a parameter that will
+    # be passed to the called method
+
+    # content is something (function or object method) which returns a renderable array for the view
+    _content: '\Drupal\vendini\Controller\TicketController::reserveTicket'
+    _title: 'Reserve Ticket'
+  requirements:
+    # to reserve a ticket one must be logged in
+    _role: 'authenticated'
+    _entity_access: 'node.view'
+
+vendini.viewTicket:
+  path: '/ticket/{vendini_ticket}'
+  defaults:
+    _content: '\Drupal\vendini\Controller\TicketController::viewTicket'
+    _title: 'Ticket'
+  requirements:
+    # quick and dirty custom access check function
+    _custom_access: '\Drupal\vendini\Controller\TicketController::accessView'
+    _permission: 'view all tickets'
+  options:
+    _access_mode: 'ANY'
+
+vendini.deleteTicket:
+  path: '/ticket/{vendini_ticket}/delete'
+  defaults:
+    # entities can provide their own forms for editing
+    _entity_form: 'vendini_ticket.delete'
+    _title: 'Delete Ticket'
+  requirements:
+    _permission: 'delete tickets'
+
+vendini.admitTicket:
+  path: '/ticket/{vendini_ticket}/admit'
+  defaults:
+    _entity_form: 'vendini_ticket.admit'
+    _title: 'Admit Ticket'
+  requirements:
+    _permission: 'admit tickets'

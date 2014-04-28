@@ -36,17 +36,15 @@ function vendini_permission() {
  */
 function vendini_node_view_alter(&$build, NodeInterface $node, EntityViewDisplayInterface $display) {
 	if ($node->bundle() == 'event' && $build['#view_mode'] == 'full') {
-		if ($build['#view_mode'] == 'full') {
-			$build['reserve_ticket_link'][] = array(
-				'#type' => 'link',
-				'#title' => t('Get tickets!'),
-				'#route_name' => 'vendini.reserveTicket',
-				'#route_parameters' => array(
-					'node' => $node->id()
-				),
-				'#weight' => 100
-			);
-		}
+		$build['reserve_ticket_link'][] = array(
+			'#type' => 'link',
+			'#title' => t('Get tickets!'),
+			'#route_name' => 'vendini.reserveTicket',
+			'#route_parameters' => array(
+				'node' => $node->id()
+			),
+			'#weight' => 100
+		);
 	}
 }
 

@@ -1,0 +1,20 @@
+# Configuration schema for Vendini Settings
+
+# Configuration section key
+vendini.sales:
+  # Type mapping means key-value pairs
+  # Other valid types are Unedfined, Sequence (probably more)
+  type: mapping
+
+  # Configuration section human-readable name
+  label: 'Ticket Sales settings'
+  mapping:
+    # Actual config option
+    enabled:
+      # available types are string, integer, float, boolean, uri, email,
+      type: boolean
+      label: 'Whether ticket sales are enabled or not'
+    message:
+      type: string
+      label: 'Mesage to display when ticket sales are disabled'
+    # Any other config option would go here
