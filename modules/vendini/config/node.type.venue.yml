@@ -1,0 +1,18 @@
+type: venue
+uuid: ca47d5f8-664e-4927-ab3a-588f575ed5a7
+name: Venue
+description: 'Venues are the places where our events take place.'
+help: 'Include details like the Venue name, location and facilities.'
+has_title: true
+title_label: Name
+settings:
+  node:
+    preview: '1'
+    options:
+      status: status
+      promote: 0
+      sticky: 0
+      revision: 0
+    submitted: 0
+status: true
+langcode: en

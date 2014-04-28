@@ -1,0 +1,19 @@
+id: node.venue.field_seats
+uuid: 344aef5c-eefe-4ea2-8253-83ed407cf52c
+status: true
+langcode: en
+field_uuid: e66d46fb-a3e5-46e8-ab00-c9fada6133fd
+field_name: field_seats
+entity_type: node
+bundle: venue
+label: Seats
+description: 'The number of total seats of this venue.'
+required: 1
+default_value: {  }
+default_value_function: ''
+settings:
+  min: '1'
+  max: ''
+  prefix: ''
+  suffix: ''
+field_type: number_integer

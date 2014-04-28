@@ -1,0 +1,26 @@
+id: node.event.default
+uuid: bd041d92-52b6-4522-a300-b12de5823fbd
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  field_date:
+    type: datetime_default
+    weight: '0'
+    settings:
+      format_type: medium
+    label: above
+  body:
+    type: text_default
+    weight: '1'
+    settings: {  }
+    label: above
+  field_venue:
+    type: entity_reference_label
+    weight: '2'
+    settings:
+      link: true
+    label: above
+  langcode:
+    visible: false
+status: true

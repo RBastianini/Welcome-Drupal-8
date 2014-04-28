@@ -1,0 +1,15 @@
+vendini.viewTicket:
+  route_name: vendini.viewTicket
+  base_route: vendini.viewTicket
+  title: 'View'
+  weight: 0
+vendini.admitTicket:
+  route_name: vendini.admitTicket
+  title: 'Admit'
+  base_route: vendini.viewTicket
+  weight: 10
+vendini.deleteTicket:
+  route_name: vendini.deleteTicket
+  title: 'Delete'
+  base_route: vendini.viewTicket
+  weight: 20

@@ -1,0 +1,14 @@
+id: node.field_venue
+uuid: 4c272dcf-25ff-49b7-a208-8ac9567aeac6
+status: true
+langcode: en
+name: field_venue
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: entity_reference
+locked: false
+cardinality: '1'
+translatable: false
+indexes: {  }

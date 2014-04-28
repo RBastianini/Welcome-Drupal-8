@@ -1,0 +1,16 @@
+id: node.venue.body
+uuid: ba4f64fc-b2f7-4e51-8d05-5c08b69ab679
+status: true
+langcode: en
+field_name: body
+entity_type: node
+bundle: venue
+label: Description
+description: ''
+required: 0
+default_value: {  }
+default_value_function: ''
+settings:
+  text_processing: '1'
+  display_summary: 1
+field_type: text_with_summary

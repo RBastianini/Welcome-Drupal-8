@@ -1,0 +1,4 @@
+# Actual default settings values for the vendini.sales configuration
+
+enabled: false
+message: 'Ticket sales are not available at the moment.'

@@ -1,0 +1,33 @@
+id: node.event.default
+uuid: 7fa40f3f-a7d5-4729-a000-c92256bec111
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  title:
+    type: string
+    weight: 0
+    settings:
+      size: '60'
+      placeholder: ''
+  body:
+    type: text_textarea_with_summary
+    weight: 1
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+  field_venue:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_type: single
+      placeholder: ''
+  field_date:
+    type: datetime_default
+    weight: 3
+    settings: {  }
+hidden: {  }
+status: true

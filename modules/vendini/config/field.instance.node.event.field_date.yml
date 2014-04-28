@@ -1,0 +1,16 @@
+id: node.event.field_date
+uuid: 24618d9c-4d1c-4cb9-8509-9d13af7a5547
+status: true
+langcode: en
+field_uuid: 4c4c9098-cb7d-420e-bf00-fe96219fc764
+field_name: field_date
+entity_type: node
+bundle: event
+label: date
+description: ''
+required: 0
+default_value: {  }
+default_value_function: ''
+settings:
+  default_value: blank
+field_type: datetime

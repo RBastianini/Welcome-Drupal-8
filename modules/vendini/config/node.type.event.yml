@@ -1,0 +1,18 @@
+type: event
+uuid: ddce590a-f20a-42b0-bf28-405660d6ce30
+name: Event
+description: 'Events are happenings organized in venues.'
+help: ''
+has_title: true
+title_label: Title
+settings:
+  node:
+    preview: '1'
+    options:
+      status: status
+      promote: promote
+      sticky: 0
+      revision: 0
+    submitted: 0
+status: true
+langcode: en

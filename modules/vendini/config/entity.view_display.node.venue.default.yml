@@ -1,0 +1,26 @@
+id: node.venue.default
+uuid: 6ceb61cc-a9ce-45ee-881b-2742818320b6
+targetEntityType: node
+bundle: venue
+mode: default
+content:
+  title:
+    type: string
+    weight: 0
+    settings:
+      size: '60'
+      placeholder: ''
+  body:
+    type: text_textarea_with_summary
+    weight: 1
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+  field_seats:
+    type: number
+    weight: 2
+    settings:
+      placeholder: '100'
+hidden: {  }
+status: true

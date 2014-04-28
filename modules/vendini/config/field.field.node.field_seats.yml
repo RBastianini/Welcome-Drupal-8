@@ -1,0 +1,13 @@
+id: node.field_seats
+uuid: e66d46fb-a3e5-46e8-ab00-c9fada6133fd
+status: true
+langcode: en
+name: field_seats
+entity_type: node
+type: integer
+settings: {  }
+module: number
+locked: false
+cardinality: '1'
+translatable: false
+indexes: {  }

@@ -1,0 +1,21 @@
+id: node.event.teaser
+uuid: cdec6a7b-7245-48a2-9400-d5b727e89871
+targetEntityType: node
+bundle: event
+mode: teaser
+content:
+  field_date:
+    type: datetime_plain
+    weight: 0
+    settings: {  }
+    label: inline
+  field_venue:
+    type: entity_reference_label
+    weight: 1
+    settings:
+      link: false
+    label: inline
+hidden:
+  langcode: true
+  body: true
+status: true

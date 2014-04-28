@@ -1,0 +1,21 @@
+id: node.event.field_venue
+uuid: 5078e4d6-62d9-4e8d-9200-eecfcf3b4348
+status: true
+langcode: en
+field_uuid: 4c272dcf-25ff-49b7-a208-8ac9567aeac6
+field_name: field_venue
+entity_type: node
+bundle: event
+label: Venue
+description: ''
+required: true
+default_value: {  }
+default_value_function: ''
+settings:
+  handler: default
+  handler_settings:
+    target_bundles:
+      venue: venue
+    sort:
+      field: _none
+field_type: entity_reference

@@ -1,0 +1,96 @@
+<?php
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\node\NodeInterface;
+
+define('VENDINI_MAX_TICKET_PER_USER', 1);
+
+/**
+ * Implementation of hook_permission.
+ */
+function vendini_permission() {
+	return array(
+		'view all tickets' => array(
+			'title' => t('View all tickets'),
+			'description' => t('View all tickets for all users.'),
+		),
+		'admit tickets' => array(
+			'title' => t('Admit and unadmit tickets'),
+			'description' => t('Admit and unadmit any ticket.'),
+			'restrict access' => TRUE,
+		),
+		'delete tickets' => array(
+			'title' => t('Delete tickets'),
+			'description' => t('Delete tickets as if they were never issued.'),
+			'restrict access' => TRUE,
+		),
+	);
+}
+
+/**
+ * Implementation of hook_node_view_alter.
+ * Used to add our "reserve tickets" link.
+ * @param array $build
+ * @param \Drupal\node\NodeInterface;
+ * @param \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display
+ */
+function vendini_node_view_alter(&$build, NodeInterface $node, EntityViewDisplayInterface $display) {
+	if ($node->bundle() == 'event' && $build['#view_mode'] == 'full') {
+		if ($build['#view_mode'] == 'full') {
+			$build['reserve_ticket_link'][] = array(
+				'#type' => 'link',
+				'#title' => t('Get tickets!'),
+				'#route_name' => 'vendini.reserveTicket',
+				'#route_parameters' => array(
+					'node' => $node->id()
+				),
+				'#weight' => 100
+			);
+		}
+	}
+}
+
+/**
+ * Verifies if the given event has available tickes.
+ * @param \Drupal\node\NodeInterface $event
+ * @return boolean
+ * @throws Exception if the specified node is not an event
+ */
+function event_has_available_tickets(NodeInterface $event) {
+
+	if ($event == null || $event->bundle() != 'event') {
+		throw new Exception('Specified node is not an event');
+	}
+
+	$venue = node_load($event->field_venue->value);
+	$issuedTickets = \Drupal::entityQuery('vendini_ticket')
+			->condition('event', $event->id())
+			->count()
+			->execute();
+	return $issuedTickets < $venue->field_seats->value;
+}
+
+/**
+ * Returns the number of tickets reserved by the specified user.
+ * @param \Drupal\node\NodeInterface $event
+ * @param \Drupal\Session\AccountInterface $user If not specified, the current loggedin user will be used.
+ * @return boolean
+ * @throws Exception if the specified node is not an event
+ */
+function user_count_reserved_tickets(NodeInterface $event, AccountInterface $user = null) {
+
+	if ($user == null) {
+		$user = \Drupal::currentUser();
+	}
+	if ($event == null || $event->bundle() != 'event') {
+		throw new Exception('Specified node is not an event');
+	}
+
+	$reservedTickets = \Drupal::entityQuery('vendini_ticket')
+			->condition('user', $user->id())
+			->condition('event', $event->id())
+			->count()
+			->execute();
+	return $reservedTickets;
+}
+
